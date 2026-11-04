@@ -1,0 +1,13 @@
+{
+  "name": "videosia",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Trabajos locales y revisables sobre MoneyPrinterTurbo",
+  "scripts": {
+    "test": "python -m unittest discover -s tests -v",
+    "check": "python -m compileall -q videosia tests",
+    "doctor": "python -m videosia doctor",
+    "demo": "python scripts/create_demo.py && python -m videosia render examples/demo.json",
+    "test:render": "npm run demo"
+  }
+}
