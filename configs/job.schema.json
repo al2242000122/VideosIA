@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trabajo local VideosIA",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "script", "audio", "materials", "ai_disclosure", "rights_note"],
+  "properties": {
+    "title": {"type": "string", "minLength": 1, "maxLength": 160},
+    "script": {"type": "string", "minLength": 1, "maxLength": 10000},
+    "audio": {"allOf": [{"$ref": "#/$defs/relativeFile"}, {"pattern": "\\.[wW][aA][vV]$"}]},
+    "materials": {
+      "type": "array", "minItems": 1, "maxItems": 20,
+      "items": {"allOf": [{"$ref": "#/$defs/relativeFile"}, {"pattern": "\\.([pP][nN][gG]|[jJ][pP][eE]?[gG])$"}]},
+      "description": "Sólo imágenes PNG/JPEG con firma válida; los videos de entrada no están habilitados."
+    },
+    "rights_note": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "ai_disclosure": {
+      "type": "object", "additionalProperties": false, "required": ["decision", "reason"],
+      "properties": {
+        "decision": {"enum": ["required", "not_required", "needs_review"]},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 2000}
+      }
+    }
+  },
+  "$defs": {
+    "relativeFile": {
+      "type": "string", "minLength": 1,
+      "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+      "description": "Ruta relativa a inputs/. El runtime valida existencia, extensión, tamaño y enlaces."
+    }
+  }
+}

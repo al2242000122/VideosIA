@@ -1,0 +1,11 @@
+{
+  "title": "VideosIA: primer video local",
+  "script": "Este es el primer video de VideosIA. La narración y las imágenes se crean en este equipo, sin enviar el guion a un proveedor de voz. El resultado pasa una revisión técnica y queda pendiente de revisión humana antes de publicarse.",
+  "audio": "demo/narration.wav",
+  "materials": ["demo/card-1.png", "demo/card-2.png", "demo/card-3.png"],
+  "ai_disclosure": {
+    "decision": "needs_review",
+    "reason": "Voz sintética instalada localmente y tarjetas propias no fotorrealistas. Revisar la pieza terminada y las reglas vigentes antes de decidir el aviso."
+  },
+  "rights_note": "Guion y tarjetas originales del proyecto; Arial y voz Windows instaladas. Revisar términos aplicables antes de uso comercial. Demo local sin música ni material de terceros descargado."
+}
